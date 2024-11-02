@@ -1,6 +1,6 @@
-/******************************************************************
+/*
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Michael Barrow / COMP 400C-001
  *
  *   Note, additional comments provided throughout source code is
  *   for educational purposes.
@@ -15,7 +15,7 @@ import java.security.SecureRandom;
 import java.lang.Math;
 
 
-/**
+/*
  * Bloom Filters
  *
  * A Bloom filter is an implementation of a set which allows a certain 
@@ -24,7 +24,7 @@ import java.lang.Math;
  * required for the set. It effectively works as follows:
  *    1) We allocate 'm' bits to represent the set data.
  *    2) We provide a hash function, which, instead of a single hash code, 
-         produces'k' hash codes and sets those bits.
+         produces 'k' hash codes and sets those bits.
  *    3) To add an element to the set, we derive bit indexes from all 'k' 
          hash codes and set those bits.
  *    4) To determine if an element is in the set, we again calculate the 
@@ -217,7 +217,7 @@ class BloomFilter {
 
     public boolean contains(String s) {
 
-        // ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE
+        // TODO ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE
         //
         // HINT: the bitmap is the private class variable 'data', and it is
         // of type BitSet (Java class BitSet). See Oracle documentation for
@@ -228,14 +228,14 @@ class BloomFilter {
     }
 
 
-    /*********************************
+    /*
      *
      * Method randomString
      *
      * This static method is used by the main routine for testing purposes.
      * It generates random strings for entering into our Bloom filter hash map.
      *
-     *********************************/
+     */
 
     public static final String LETTERS =
             "abcdefghijklmnopqrstuvexyABCDEFGHIJKLMNOPQRSTUVWYXZzéèêàôû";

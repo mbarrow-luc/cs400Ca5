@@ -1,4 +1,4 @@
-/******************************************************************
+/*
  *
  *   YOUR NAME / SECTION NUMBER
  *
@@ -14,7 +14,7 @@ import java.util.Set;
 import java.lang.Math;
 
 
-/**
+/*
  * Cuckoo Hashing Exercise
  *
  * Cuckoo hashing is a scheme for resolving hash collisions of keys in 
@@ -54,7 +54,7 @@ public class CuckooHash<K, V> {
 	private int a = 37, b = 17;				// Constants used in h2(key)
 
 
-	/**
+	/*
 	 * Class Bucket
 	 *
 	 * Inner bucket class which represents a <key,value> pair 
@@ -91,7 +91,7 @@ public class CuckooHash<K, V> {
 	private int hash2(K key) 	{ return (a * b + Math.abs(key.hashCode())) % CAPACITY; }
 
 
-	/**
+	/*
 	 * Method CuckooHash
 	 *
 	 * Constructor that initializes and sets the hashmap. A future 
@@ -108,7 +108,7 @@ public class CuckooHash<K, V> {
 	}						  
 
 
-	/**
+	/*
 	 * Method size
 	 *
 	 * Get the number of elements in the table; the time complexity is O(n).
@@ -126,7 +126,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method clear
 	 *
 	 * Removes all elements in the table, it does not rest the size of 
@@ -141,7 +141,7 @@ public class CuckooHash<K, V> {
 	public int mapSize() { return CAPACITY; }    // used in external testing only
 
 
-	/**
+	/*
 	 * Method values
 	 *
 	 * Get a list containing of all values in the table
@@ -160,7 +160,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method keys
 	 *
 	 * Get a set containing all the keys in the table
@@ -179,7 +179,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method put
 	 *
 	 * Adds a key-value pair to the table by means of cuckoo hashing. 
@@ -246,7 +246,7 @@ public class CuckooHash<K, V> {
 
  	public void put(K key, V value) {
 
-		// ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE.
+		// TODO ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE.
 		// Also make sure you read this method's prologue above, it should help
 		// you. Especially the two HINTS in the prologue.
 
@@ -254,7 +254,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method get
 	 *
 	 * Retrieve a value in O(1) time based on the key because it can only 
@@ -275,7 +275,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method remove
 	 *
 	 * Removes this key value pair from the table. Its time complexity 
@@ -300,7 +300,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method printTable
 	 *
 	 * The method will prepare a String representation of the table of 
@@ -328,7 +328,7 @@ public class CuckooHash<K, V> {
 	}
 
 
-	/**
+	/*
 	 * Method rehash
 	 *
 	 * This method regrows the hashtable to capacity: 2*old capacity + 1 

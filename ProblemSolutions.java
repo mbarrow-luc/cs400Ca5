@@ -1,6 +1,6 @@
-/******************************************************************
+/*
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Michael Barrow / COMP 400C-001
  *
  *   This java file contains the problem solutions of isSubSet, findKthLargest,
  *   and sort2Arrays methods. You should utilize the Java Collection Framework for
@@ -12,7 +12,7 @@ import java.util.*;
 
 class ProblemSolutions {
 
-    /**
+    /*
      * Method: isSubset()
      *
      * Given two arrays of integers, A and B, return whether
@@ -32,13 +32,13 @@ class ProblemSolutions {
 
     public boolean isSubset(int list1[], int list2[]) {
 
-        // ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
+        // TODO ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
 
         return false;
     }
 
 
-    /**
+    /*
      * Method: findKthLargest
      *
      * Given an Array A and integer K, return the k-th maximum element in the array.
@@ -53,13 +53,13 @@ class ProblemSolutions {
 
     public int findKthLargest(int[] array, int k) {
 
-        // ADD YOUR CODE HERE
+        // TODO ADD YOUR CODE HERE
 
         return 0;
     }
 
 
-    /**
+    /*
      * Method: sort2Arrays
      *
      * Given two arrays A and B with n and m integers respectively, return
@@ -74,7 +74,7 @@ class ProblemSolutions {
 
     public int[] sort2Arrays(int[] array1, int[] array2) {
 
-        // ADD YOU CODE HERE
+        // TODO ADD YOU CODE HERE
 
         return null;
     }
