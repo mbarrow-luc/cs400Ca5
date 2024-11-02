@@ -90,9 +90,21 @@ class ProblemSolutions {
 
     public int[] sort2Arrays(int[] array1, int[] array2) {
 
-        // TODO ADD YOU CODE HERE
+        Set<Integer> hashTable = new HashSet<>();
+        for (int i : array1) {
+            hashTable.add(i);
+        }
+        for (int i : array2) {
+            hashTable.add(i);
+        }
 
-        return null;
+        int[] array3 = new int[array1.length + array2.length];
+        for (int i=0; i<array3.length; i++) {
+            array3[i] = Collections.min(hashTable);
+            hashTable.remove(Collections.min(hashTable));
+        }
+
+        return array3;
     }
 
 }
