@@ -19,7 +19,7 @@ class ProblemSolutions {
      * array B is a subset if array A. Example:
      *      Input: [1,50,55,80,90], [55,90]
      *      Output: true
-     *      Input: [1,50,55,80,90], [55,90, 99]
+     *      Input: [1,50,55,80,90], [55,90,99]
      *      Output: false
      *
      * The solution time complexity must NOT be worse than O(n).
@@ -32,9 +32,18 @@ class ProblemSolutions {
 
     public boolean isSubset(int list1[], int list2[]) {
 
-        // TODO ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
+        Set<Integer> hashTable = new HashSet<>();
+        for (int i : list1) {
+            hashTable.add(i);
+        }
 
-        return false;
+        for (int i : list2) {
+            if (! hashTable.contains(i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 
