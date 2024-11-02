@@ -62,9 +62,16 @@ class ProblemSolutions {
 
     public int findKthLargest(int[] array, int k) {
 
-        // TODO ADD YOUR CODE HERE
+        Set<Integer> hashTable = new HashSet<>();
+        for (int i : array) {
+            hashTable.add(i);
+        }
 
-        return 0;
+        for (int i=0; i<k-1; i++) {
+            hashTable.remove(Collections.max(hashTable));
+        }
+
+        return Collections.max(hashTable);
     }
 
 
