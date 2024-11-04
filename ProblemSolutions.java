@@ -30,7 +30,7 @@ class ProblemSolutions {
      * @return      - returns boolean value B is a subset of A.
      */
 
-    public boolean isSubset(int list1[], int list2[]) {
+    public boolean isSubset(int[] list1, int[] list2) {
 
         Set<Integer> hashTable = new HashSet<>();
         for (int i : list1) {
@@ -62,16 +62,17 @@ class ProblemSolutions {
 
     public int findKthLargest(int[] array, int k) {
 
-        Set<Integer> hashTable = new HashSet<>();
+        AbstractQueue<Integer> priorityQueue = new PriorityQueue<>();
         for (int i : array) {
-            hashTable.add(i);
+            priorityQueue.add(i);
         }
 
-        for (int i=0; i<k-1; i++) {
-            hashTable.remove(Collections.max(hashTable));
+        int[] sortedArray = new int[priorityQueue.size()];
+        for (int i = 0; i< sortedArray.length; i++) {
+            sortedArray[i] = priorityQueue.poll();
         }
 
-        return Collections.max(hashTable);
+        return sortedArray[sortedArray.length - k];
     }
 
 
@@ -90,21 +91,20 @@ class ProblemSolutions {
 
     public int[] sort2Arrays(int[] array1, int[] array2) {
 
-        Set<Integer> hashTable = new HashSet<>();
+        AbstractQueue<Integer> priorityQueue = new PriorityQueue<>();
         for (int i : array1) {
-            hashTable.add(i);
+            priorityQueue.add(i);
         }
         for (int i : array2) {
-            hashTable.add(i);
+            priorityQueue.add(i);
         }
 
-        int[] array3 = new int[array1.length + array2.length];
-        for (int i=0; i<array3.length; i++) {
-            array3[i] = Collections.min(hashTable);
-            hashTable.remove(Collections.min(hashTable));
+        int[] mergedSortedArray = new int[priorityQueue.size()];
+        for (int i = 0; i< mergedSortedArray.length; i++) {
+            mergedSortedArray[i] = priorityQueue.poll();
         }
 
-        return array3;
+        return mergedSortedArray;
     }
 
 }
