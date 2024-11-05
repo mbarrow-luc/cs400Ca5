@@ -249,8 +249,56 @@ public class CuckooHash<K, V> {
 		// TODO ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE.
 		// Also make sure you read this method's prologue above, it should help
 		// you. Especially the two HINTS in the prologue.
+		int n = 0;
+		int pos1;
+		int pos2;
+		Bucket<K, V> tempBucket;
 
-		return;
+		while (n < CAPACITY) {
+
+			// if empty, place new pair at pos1
+			pos1 = hash1(key);
+			if (table[pos1] == null) {
+				table[pos1] = new Bucket<>(key, value);
+				return;
+			}
+
+			// eject current pair, keeping track of them by reassigning key and value
+			tempBucket = new Bucket<>(key, value);
+			System.out.println(printTable());
+			key = table[pos1].getBucKey();
+			value = table[pos1].getValue();
+			System.out.println(key);
+			System.out.println(value);
+			System.out.println(tempBucket.getBucKey());
+			System.out.println(tempBucket.getValue());
+			table[pos1] = tempBucket;
+			System.out.println(hash2(key));
+			System.out.println(hash2(tempBucket.getBucKey()));
+
+			// determine which function the ejected pair was hashed with
+			if (hash2(key) == hash2(tempBucket.getBucKey())) {
+				pos2 = hash1(key);
+			}
+			else {
+				pos2 = hash2(key);
+			}
+
+			// repeat above steps for pos2, incrementing n and looping if necessary
+			if (table[pos2] == null) {
+				table[pos2] = new Bucket<>(key, value);
+				return;
+			}
+			tempBucket = new Bucket<>(key, value);
+			key = table[pos2].getBucKey();
+			value = table[pos2].getValue();
+			table[pos2] = tempBucket;
+
+			n++;
+		}
+
+		rehash();
+		put(key, value);
 	}
 
 
