@@ -1,6 +1,6 @@
 /*
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Michael Barrow / COMP 400C-001
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -246,44 +246,42 @@ public class CuckooHash<K, V> {
 
  	public void put(K key, V value) {
 
-		// TODO ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME AT TOP OF FILE.
-		// Also make sure you read this method's prologue above, it should help
-		// you. Especially the two HINTS in the prologue.
 		int n = 0;
 		int pos = hash1(key);
-		Bucket<K, V> tempBucket;
+		Bucket<K, V> temp;
+		Bucket<K, V> current = new Bucket<>(key, value);
 
-		if (get(key) == value) {
+		if (table[pos] != null && table[pos].getValue().equals(value)) {
 			return;
 		}
 
 		while (n < CAPACITY) {
-			System.out.println(printTable());
-			// if empty, place new entry at pos
+
+			// if empty, place current entry at pos
 			if (table[pos] == null) {
-				table[pos] = new Bucket<>(key, value);
+				table[pos] = current;
 				return;
 			}
 
-			// eject current entry, keeping track of it by reassigning key and value
-			tempBucket = new Bucket<>(key, value);
-			key = table[pos].getBucKey();
-			value = table[pos].getValue();
-			table[pos] = tempBucket;
+			// exchange existing entry with current entry
+			temp = table[pos];
+			table[pos] = current;
+			current = temp;
 
 			// determine which function the ejected entry was hashed with
-			if (hash1(key) == pos) {
-				pos = hash2(key);
-            }
+			int index = hash1(current.getBucKey());
+			if (index == pos) {
+				pos = hash2(current.getBucKey());
+			}
 			else {
-				pos = hash1(key);
-            }
+				pos = index;
+			}
 
             n++;
 		}
 
 		rehash();
-		put(key, value);
+		put(current.getBucKey(), current.getValue());
 	}
 
 
